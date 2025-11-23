@@ -2,6 +2,7 @@
 import axios from "axios";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000/api";
+console.log("API BASE FROM ENV:", process.env.REACT_APP_API_BASE);
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -9,6 +10,7 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+
 
 // إضافة interceptor لوضع توكن المستخدم إذا موجود
 api.interceptors.request.use((config) => {
