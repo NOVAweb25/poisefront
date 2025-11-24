@@ -293,9 +293,10 @@ setProducts(data);
       const alreadyFavorite = userFavorites.includes(product._id);
       if (alreadyFavorite) {
         await fetch(
-          `${API_BASE}/api/users/${userId}/favorites/${product._id}`,
-          { method: "DELETE" }
-        );
+  `${API_BASE}/users/${userId}/favorites/${product._id}`,
+  { method: "DELETE" }
+);
+
         setUserFavorites((prev) => prev.filter((id) => id !== product._id));
       } else {
         await addFavorite(userId, { productId: product._id });

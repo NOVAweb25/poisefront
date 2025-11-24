@@ -24,7 +24,8 @@ export const requestNotificationPermission = async (userId) => {
 
     if (token) {
       console.log("🔑 fcmToken:", token);
-      await fetch(`http://localhost:5000/api/users/${userId}/fcm-token`, {
+     await fetch(`${process.env.REACT_APP_API_BASE}/users/${userId}/fcm-token`, {
+
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fcmToken: token }),
